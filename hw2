@@ -1,0 +1,26 @@
+void setup(){
+size(500,500);
+background(233,211,344);
+}
+
+void draw(){
+fill(100,200,300);
+rect(100,300,300,100);
+fill(255,255,255);
+ellipse(350,350,50,50);
+fill(0);
+ellipse(350,350,30,30);
+fill(100,200,300);
+triangle(100, 500, 180, 300, 100, 100);
+translate(width/2, height/2);
+  rotate(-PI);
+  rotate(-HALF_PI);
+  fill(255, 204, 0);
+  arc(100, 0, 50, 100, 0, PI);
+  rotate(-PI);
+  fill(255, 204, 0);
+  arc(-100, 150, 30, 40, 0, PI);
+  fill(255, 204, 0);
+  arc(-130, 150, 30, 40, 0, PI);
+
+}
