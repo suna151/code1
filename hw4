@@ -1,0 +1,69 @@
+float elX = 30;
+float elY = 30;
+float elDiameter = 20;
+float elXSpeed = 4;
+float elYSpeed = 3;
+float buttonTop = 150;
+float buttonLeft = 200;
+float buttonBottom = 250;
+float buttonRight = 300;
+boolean rectcolor = false;
+
+void setup() {
+  size(500, 400);
+}
+
+void draw() {
+  background(252,243,75);
+  noStroke();
+  rect(100, 150, 285, 100);
+  
+  if (rectcolor) {
+    fill(66,244,140);
+  } else {
+    fill(185,66,244);
+  }
+  
+  elX += elXSpeed;
+  elY += elYSpeed;
+  ellipse(elX, elY, elDiameter, elDiameter);
+
+  if ((elX > width) || (elX < 0)) {
+    elXSpeed *= -1;
+  }
+
+  if ((elY > height) || (elY < 0)) {
+    elYSpeed *= -1;
+  }
+
+  if ((elY > buttonTop) && (elX > buttonLeft) && (elX < buttonRight)) {
+    elYSpeed *= -1;
+    }
+
+    if((elY < buttonBottom) && (elX > buttonLeft) && (elX < buttonRight)) {
+    elYSpeed *= -1;
+    }
+     if((elX > buttonLeft) && (elY > buttonTop) && (elY < buttonTop + 100)) {
+   elXSpeed *= -1;
+     }
+
+     if ((elX < buttonRight) && ( elY > buttonTop) && (elY < buttonTop + 100)) {
+   elXSpeed *= -1;
+     }
+     if ((elY == buttonTop) || (elY == buttonBottom) && (elX>buttonLeft) && (elX>buttonRight)) {
+    elDiameter *= 1.5;
+  }
+  
+  if ((elX == buttonLeft) || (elX == buttonRight) && (elY>buttonBottom) && (elY>buttonTop)) {
+    elDiameter *= 1.5;
+  }
+
+}
+void mouseClicked() {
+  if ((mouseX >200)&&(mouseX<300)&&(mouseY>150)&&(mouseY<250)) {
+    rectcolor = !rectcolor;
+  }
+}
+
+//Alyssa and I worked together on this assignment and she helped me with my code. I'm having issues with the bounce and diameter increase as well. I'm going to keep working on it and try to do a different rendition but I just wanted to turn in the assignment for now just so you know I completed it on time!
+//My solution for the button bounce was to elongate the button and it seemed to fix some of the problem
