@@ -1,0 +1,13 @@
+Bug funBug = new Bug();
+
+void setup(){
+  size(900,900);
+  strokeWeight(8);
+  stroke(145,145,145);
+}
+
+void draw(){
+  background(180,190,250);
+  funBug.display();
+  funBug.move();
+}
