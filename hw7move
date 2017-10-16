@@ -1,0 +1,30 @@
+Bug funBug = new Bug();
+boolean wKeyDown = false;
+
+void setup(){
+  size(900,900);
+  strokeWeight(8);
+  stroke(145,145,145);
+}
+
+void draw(){
+  background(180,190,250);
+  funBug.display();
+  funBug.move();
+  funBug.display(); 
+  if (wKeyDown) {  //use w key to accelerate movement
+    funBug.move();
+  }
+}
+
+void keyPressed() {
+  if (key == 'w') {
+    wKeyDown = true;
+  }
+}
+
+void keyReleased() {
+  if (key == 'w') {
+    wKeyDown = false;
+  }
+}
