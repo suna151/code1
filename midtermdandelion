@@ -1,0 +1,33 @@
+import processing.pdf.*;
+
+  float countUpX = 5;
+  float countUpY = 5;
+  float sizeOfArc = 15;
+  int rad = 100;
+  
+  void setup(){
+    noStroke();
+    //size(800,800);
+      size(3000, 5000, PDF, "dandelion_midterm.pdf");
+    background(#3b5425);
+  }
+  
+  void draw(){
+  //ellipse(0, 0, width, height);
+  fill(#f7d633, 150);
+  
+ ellipse( sin(countUpX + radians(90)) * sizeOfArc + width/2, cos(countUpY + radians(90)) * sizeOfArc +height/2, rad, rad);
+ ellipse( sin(countUpX + radians(270)) * sizeOfArc + width/2, cos(countUpY + radians(90)) * sizeOfArc +height/2, rad, rad);
+
+  fill(#f7b532, 150);
+  ellipse( sin(countUpX + radians(180)) * sizeOfArc + width/2, cos(countUpY + radians(180)) * sizeOfArc +height/2, rad, rad);
+   ellipse( sin(countUpX) * sizeOfArc + width/2, cos(countUpY) * sizeOfArc +height/2, rad, rad);
+  
+  countUpX += 70;
+  countUpY += 70;
+  sizeOfArc += 1; // makes a spiral
+  sizeOfArc += sin(countUpX * 2) * 3;
+      if (frameCount == 1300) {
+      exit();
+    }
+  }
