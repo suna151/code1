@@ -1,0 +1,36 @@
+import processing.pdf.*;
+
+float countUpX = 25;
+float countUpY = 10;
+float sizeOfArc = 15;
+int rad = 250;
+
+void setup() {
+  noStroke();
+  //size(800,800);
+  size(3000, 5000, PDF, "lavender_midterm.pdf");
+  background(#405940);
+}
+
+void draw() {
+  //ellipse(0, 0, width, height);
+  fill(#a84da2, 150);
+
+  ellipse( sin(countUpX + radians(90)) * sizeOfArc + width/2, cos(countUpY + radians(90)) * sizeOfArc +height/2, rad, rad);
+  ellipse( sin(countUpX + radians(270)) * sizeOfArc + width/2, cos(countUpY + radians(270)) * sizeOfArc +height/2, rad, rad);
+  ellipse( sin(countUpX + radians(67.5)) * sizeOfArc + width/2, cos(countUpY + radians(67.5)) * sizeOfArc +height/2, rad, rad);
+
+  fill(#f291eb, 150);
+  ellipse( sin(countUpX + radians(180)) * sizeOfArc + width/2, cos(countUpY + radians(180)) * sizeOfArc +height/2, rad, rad);
+  ellipse( sin(countUpX) * sizeOfArc + width/2, cos(countUpY) * sizeOfArc +height/2, rad, rad);
+  ellipse( sin(countUpX + radians(45)) * sizeOfArc + width/2, cos(countUpY + radians(45)) * sizeOfArc +height/2, rad, rad);
+
+  countUpX += 400;
+  countUpY += 400;
+  sizeOfArc += .9; // makes a spiral
+  //sizeOfArc += sin(countUpX * 2) * 3;
+
+  if (frameCount == 2500) {
+    exit();
+  }
+}
